@@ -11,7 +11,7 @@ Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.xjack.org/logtool/
 BuildRequires:	autoconf
 BuildRequires:	automake
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir /etc/logtool
 
