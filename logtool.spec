@@ -34,9 +34,9 @@ czytania raportów, stron WWW oraz monitorowania logów on-line.
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
-automake -a -c || :
+%{__automake}
 %configure
 %{__make}
 
@@ -50,14 +50,12 @@ install logtool/logtool logtail/logtail	$RPM_BUILD_ROOT%{_bindir}
 
 ln -sf logtool $RPM_BUILD_ROOT%{_bindir}/lt
 
-gzip -9nf README TODO CHANGES USAGE CREDITS doc/logtool.txt doc/examples/*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz doc/examples
+%doc README TODO CHANGES USAGE CREDITS doc/logtool.txt doc/examples
 %attr(750,root,root) %dir %{_sysconfdir}
 %config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
