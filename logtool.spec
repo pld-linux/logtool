@@ -36,7 +36,6 @@ czytania raportów, stron WWW oraz monitorowania logów on-line.
 rm -f missing
 %{__aclocal}
 %{__autoconf}
-%{__automake}
 %configure
 %{__make}
 
