@@ -7,7 +7,11 @@ License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(pl):	Aplikacje/Tekst
-Source0:	http://users.digitex.net/~max/logtool/%{name}-%{version}.tar.gz
+Source0:	http://www.xjack.org/logtool/logtool/%{name}-%{version}.tar.gz
+Patch0:		%{name}-ac_fixes.patch
+URL:		http://www.xjack.org/logtool/
+BuildRequires:	autoconf
+BuildRequires:	automake
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir /etc/logtool
@@ -28,18 +32,22 @@ czytania raportów, stron WWW oraz monitorowania logów on-line.
 
 %prep
 %setup -q  
+%patch0 -p1
 
 %build
-%{__make} clean
-%configure2_13
-%{__make} CFLAGS="%{rpmcflags} -ansi -pedantic -DHAVE_CONFIG_H"
+rm -f missing
+aclocal
+autoconf
+automake -a -c || :
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir},%{_mandir}/man1}
 
 install conf/{include,exclude,logtool.conf,green,yellow} \
-					$RPM_BUILD_ROOT%{_sysconfdir}
+	$RPM_BUILD_ROOT%{_sysconfdir}
 install logtool/logtool logtail/logtail	$RPM_BUILD_ROOT%{_bindir}
 
 ln -sf logtool $RPM_BUILD_ROOT%{_bindir}/lt
@@ -51,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,TODO,CHANGES,USAGE,CREDITS}.gz doc/*.gz doc/examples
+%doc *.gz doc/*.gz doc/examples
 %attr(750,root,root) %dir %{_sysconfdir}
 %config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
