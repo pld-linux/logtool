@@ -29,7 +29,7 @@ poprzez pliki /etc/logtool/*. Nadaje siê do generowania ³atwych do
 czytania raportów, stron WWW oraz monitorowania logów on-line.
 
 %prep
-%setup -q  
+%setup -q
 %patch0 -p1
 
 %build
