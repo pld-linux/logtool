@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
+Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	http://www.xjack.org/logtool/logtool/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_fixes.patch
