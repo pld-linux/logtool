@@ -35,7 +35,7 @@ czytania raportów, stron WWW oraz monitorowania logów on-line.
 %build
 rm -f missing
 aclocal
-autoconf
+%{__autoconf}
 automake -a -c || :
 %configure
 %{__make}
