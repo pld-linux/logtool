@@ -1,0 +1,48 @@
+--- logtool-1.1.0/configure.in~	Mon Jan 15 05:11:21 2001
++++ logtool-1.1.0/configure.in	Thu Dec  6 10:28:18 2001
+@@ -1,31 +1,12 @@
+-AM_INIT_AUTOMAKE(logtool,1.1.0)
+-AM_PROG_CC_STDC
+-
+ dnl Process this file with autoconf to produce a configure script.
+ AC_INIT(logtool/logtool.c)
++AM_INIT_AUTOMAKE(logtool,1.1.0)
++AM_CONFIG_HEADER(config.h) 
++
+ dnl Checks for programs.
+ AC_PROG_CC
+-if test -n "$GCC"; then
+-	CFLAGS="-O3 -Wall -Werror -ansi -pedantic"
+-fi
+-
+-dnl We want the sysconfdir to be damn near standard
+-AC_SUBST(sysconfdir)
+-if test "`echo "$sysconfdir" | grep "prefix"`" ; then
+-sysconfdir=`echo $sysconfdir/logtail | sed s/'${prefix}'/""/g`
+-else
+-sysconfdir=$sysconfdir
+-fi
+-
+-AC_SUBST(version)
+-version=1.1.0
+-
+-
++AM_PROG_CC_STDC
+ AC_PROG_INSTALL
+-AC_SUBST(installprog)
+-installprog="$INSTALL"
+-	
+-
+ AC_PROG_LN_S
+ AC_PROG_MAKE_SET
+ 
+@@ -41,9 +22,6 @@
+ 
+ dnl Checks for library functions.
+ AC_CHECK_FUNCS(regcomp strncasecmp)
+-AC_CONFIG_HEADER(config.h) 
+-AC_PREFIX_DEFAULT(/usr)
+-
+ 
+ AC_OUTPUT(logtool.spec logtail/Makefile logtool/config.h logtool/Makefile Makefile)
+ 
