@@ -25,7 +25,7 @@ read logfile reports, webpages, and online monitoring of logfiles.
 %build
 %{__make} clean
 %configure 
-%{__make}
+%{__make} CFLAGS="%{rpmcflags} -ansi -pedantic -DHAVE_CONFIG_H"
 
 %install
 rm -rf $RPM_BUILD_ROOT
