@@ -1,8 +1,8 @@
 Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
-Vendor:		A.L.Lambert <al@9b.com>
+Summary(pl):	Porêczne narzêdzie do manipulowania/monitorowania/parsowania plików syslog'a
 Name:		logtool
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -24,7 +24,7 @@ read logfile reports, webpages, and online monitoring of logfiles.
 
 %build
 %{__make} clean
-%configure 
+%configure2_13
 %{__make} CFLAGS="%{rpmcflags} -ansi -pedantic -DHAVE_CONFIG_H"
 
 %install
