@@ -1,7 +1,7 @@
 Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
 Vendor:		A.L.Lambert <al@9b.com>
 Name:		logtool
-Version:	1.0.5
+Version:	1.1.0
 Release:	1
 License:	GPL
 Source0:	http://users.digitex.net/~max/logtool/%{name}-%{version}.tar.gz
@@ -34,7 +34,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir},%{_mandir}/man1}
 install conf/{include,exclude,logtool.conf,green,yellow} \
 					$RPM_BUILD_ROOT%{_sysconfdir}
 install logtool/logtool logtail/logtail	$RPM_BUILD_ROOT%{_bindir}
-install doc/logtool.1			$RPM_BUILD_ROOT%{_mandir}/man1
 
 ln -sf ./logtool $RPM_BUILD_ROOT%{_bindir}/lt
 
@@ -50,4 +49,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(750,root,root) %dir %{_sysconfdir}
 %config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
