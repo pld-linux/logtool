@@ -6,7 +6,7 @@ Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.xjack.org/logtool/logtool/%{name}-%{version}.tar.gz
-# Source0-md5:	90da3e9881c04d14c93a517c88c4ff63
+# Source0-md5:	1c51da0ee599441200c74f761c617139
 Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.xjack.org/logtool/
 BuildRequires:	autoconf
