@@ -4,10 +4,10 @@ Name:		logtool
 Version:	1.1.0
 Release:	1
 License:	GPL
-Source0:	http://users.digitex.net/~max/logtool/%{name}-%{version}.tar.gz
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(pl):	Aplikacje/Tekst
+Source0:	http://users.digitex.net/~max/logtool/%{name}-%{version}.tar.gz
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir /etc/logtool
@@ -35,7 +35,7 @@ install conf/{include,exclude,logtool.conf,green,yellow} \
 					$RPM_BUILD_ROOT%{_sysconfdir}
 install logtool/logtool logtail/logtail	$RPM_BUILD_ROOT%{_bindir}
 
-ln -sf ./logtool $RPM_BUILD_ROOT%{_bindir}/lt
+ln -sf logtool $RPM_BUILD_ROOT%{_bindir}/lt
 
 
 gzip -9nf README TODO CHANGES USAGE CREDITS doc/logtool.txt doc/examples/*
