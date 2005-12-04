@@ -57,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README TODO CHANGES USAGE CREDITS doc/logtool.txt doc/examples
 %attr(750,root,root) %dir %{_sysconfdir}
-%config(noreplace) %verify(not size md5 mtime) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
