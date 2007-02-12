@@ -1,5 +1,5 @@
 Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
-Summary(pl):	Porêczne narzêdzie do manipulowania/monitorowania/parsowania plików sysloga
+Summary(pl.UTF-8):   PorÄ™czne narzÄ™dzie do manipulowania/monitorowania/parsowania plikÃ³w sysloga
 Name:		logtool
 Version:	1.1.0
 Release:	4
@@ -22,12 +22,12 @@ CSV, HTML format, and is easily configured to your needs via the
 /etc/logtool/* files. It is suitable for use in generating easy to
 read logfile reports, webpages, and online monitoring of logfiles.
 
-%description -l pl
-Logtool jest porêcznym narzêdziem do obrabiania/monitorowania/
-parsowania plików sysloga i podobnych. Mo¿e produkowaæ wyniki w
-postaci ANSI, ASCII, CSV, HTML; jest ³atwo konfigurowalny do potrzeb
-poprzez pliki /etc/logtool/*. Nadaje siê do generowania ³atwych do
-czytania raportów, stron WWW oraz monitorowania logów on-line.
+%description -l pl.UTF-8
+Logtool jest porÄ™cznym narzÄ™dziem do obrabiania/monitorowania/
+parsowania plikÃ³w sysloga i podobnych. MoÅ¼e produkowaÄ‡ wyniki w
+postaci ANSI, ASCII, CSV, HTML; jest Å‚atwo konfigurowalny do potrzeb
+poprzez pliki /etc/logtool/*. Nadaje siÄ™ do generowania Å‚atwych do
+czytania raportÃ³w, stron WWW oraz monitorowania logÃ³w on-line.
 
 %prep
 %setup -q
