@@ -1,5 +1,5 @@
 Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
-Summary(pl.UTF-8):   Poręczne narzędzie do manipulowania/monitorowania/parsowania plików sysloga
+Summary(pl.UTF-8):	Poręczne narzędzie do manipulowania/monitorowania/parsowania plików sysloga
 Name:		logtool
 Version:	1.1.0
 Release:	4
