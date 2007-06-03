@@ -1,13 +1,12 @@
 Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
 Summary(pl.UTF-8):	Poręczne narzędzie do manipulowania/monitorowania/parsowania plików sysloga
 Name:		logtool
-Version:	1.1.0
-Release:	4
+Version:	1.2.8
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.xjack.org/logtool/logtool/%{name}-%{version}.tar.gz
-# Source0-md5:	1c51da0ee599441200c74f761c617139
-Patch0:		%{name}-ac_fixes.patch
+# Source0-md5:	f596fd2057fe5f3293ca054dd14a3c10
 URL:		http://www.xjack.org/logtool/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,31 +30,30 @@ czytania raportów, stron WWW oraz monitorowania logów on-line.
 
 %prep
 %setup -q
-%patch0 -p1
+sed -i 's/-o root //'  src/Makefile.in
 
 %build
-rm -f missing
-%{__aclocal}
+#rm -f missing
+#%{__aclocal}
 %{__autoconf}
 %configure
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir},%{_mandir}/man1}
 
-install conf/{include,exclude,logtool.conf,green,yellow} \
-	$RPM_BUILD_ROOT%{_sysconfdir}
-install logtool/logtool logtail/logtail	$RPM_BUILD_ROOT%{_bindir}
-
-ln -sf logtool $RPM_BUILD_ROOT%{_bindir}/lt
+%{__make} install \
+        DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README TODO CHANGES USAGE CREDITS doc/logtool.txt doc/examples
+%doc COPYING TODO INSTALL CHANGES USAGE CREDITS doc/* scripts/*
 %attr(750,root,root) %dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
