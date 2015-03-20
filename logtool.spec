@@ -2,7 +2,7 @@ Summary:	A handy syslog file(s) manipulation/monitoring/parsing tool
 Summary(pl.UTF-8):	Poręczne narzędzie do manipulowania/monitorowania/parsowania plików sysloga
 Name:		logtool
 Version:	1.3.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	http://www.xjack.org/logtool/logtool/%{name}-%{version}.tar.gz
